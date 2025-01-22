@@ -1,12 +1,28 @@
-import "./App.css";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Dashboard from "./pages/Dashboard";
+import Overview from "./pages/Overview";
+import History from "./pages/History";
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="text-left text-blue-500">
-        My Real Time Crypto Currency App
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Navigate to="/dashboard" />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/overview" element={<Overview />} />
+        <Route path="/history" element={<History />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 };
 
