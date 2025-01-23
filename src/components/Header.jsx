@@ -20,27 +20,31 @@ const Header = () => {
   };
 
   return (
-    <header className="p-4 bg-slate-800 text-white flex justify-between items-center shadow-lg">
-      <h1 className="text-2xl font-bold">Real-Time Cryptocurrency Dashboard</h1>
-      <div className="w-64">
-        <Select
-          options={options}
-          defaultValue={options.find((opt) => opt.value === selectedCrypto)}
-          onChange={handleCryptoChange}
-          className="text-black font-semibold"
-        />
+    <header className="p-4 bg-slate-800 text-white shadow-lg">
+      <div className="flex flex-wrap justify-between items-center gap-4">
+        <h1 className="text-xl md:text-2xl font-bold flex-1 text-center md:text-left">
+          Real-Time Cryptocurrency Dashboard
+        </h1>
+        <div className="w-full md:w-64">
+          <Select
+            options={options}
+            defaultValue={options.find((opt) => opt.value === selectedCrypto)}
+            onChange={handleCryptoChange}
+            className="text-black font-semibold"
+          />
+        </div>
+        <nav className="flex-1 flex flex-wrap justify-center md:justify-end gap-4">
+          <Link className="text-white hover:underline" to="/dashboard">
+            Dashboard
+          </Link>
+          <Link className="text-white hover:underline" to="/overview">
+            Overview
+          </Link>
+          <Link className="text-white hover:underline" to="/history">
+            History
+          </Link>
+        </nav>
       </div>
-      <nav className="flex space-x-4">
-        <Link className="text-white hover:underline" to="/dashboard">
-          Dashboard
-        </Link>
-        <Link className="text-white hover:underline" to="/overview">
-          Overview
-        </Link>
-        <Link className="text-white hover:underline" to="/history">
-          History
-        </Link>
-      </nav>
     </header>
   );
 };
